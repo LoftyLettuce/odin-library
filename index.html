@@ -8,6 +8,26 @@
 </head>
 <body>
   <h1>Library</h1>
+  <dialog>
+    <form method="dialog">
+      <label for="title"> <span>Title:</span>
+      <input type="text" name="Title" id="title"></label>
+      <label for="author"> <span>Author:</span>
+      <input type="text" name="Author" id="author"></label>
+      <label for="page-num"> <span>Number of pages:</span>
+      <input type="number" name="Page-num" id="page-num" min="0"></label>
+      <fieldset>
+        <legend>Status</legend>
+        <label for="completed">
+        <input type="radio" name="status" id="completed">Completed</label>
+        <label for="reading">
+        <input type="radio" name="status" id="reading">Reading</label>
+        <label for="read">
+        <input type="radio" name="status" id="read">Read</label>
+      </fieldset>
+      <button type="submit">Add new :)</button>
+    </form>
+  </dialog>
   <table>
     <caption>This library is for storing books</caption>
     <thead>
@@ -20,10 +40,12 @@
       </tr>
     </thead>
     <tbody>
-
+      
     </tbody>
     <tfoot>
-      <td colspan="4"><Button> Add new :)</Button></td>
+      <td colspan="5">
+        <Button> Add new :)</Button>
+      </td>
     </tfoot>
   </table>
 </body>
