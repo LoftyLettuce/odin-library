@@ -1,0 +1,32 @@
+*
+{
+  appearance: none;
+  margin: 0;
+  padding: 0;
+}
+body
+{
+  margin: 5% 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+h1, table, caption
+{
+  margin-bottom: 5%;
+}
+table 
+{
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 80%;
+}
+td, th
+{
+  border: 1px black solid;
+}
+tfoot button
+{
+  width: 100%;
+}
