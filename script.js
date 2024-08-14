@@ -36,7 +36,6 @@ function displayLibrary()
     statusButton.addEventListener("click", function(){
       targetedBook.switchStatus();
       statusButton.textContent = targetedBook.status;
-      console.table(library);
     });
 
     let remove = document.createElement("td");  
@@ -47,7 +46,6 @@ function displayLibrary()
       bodyTable.removeChild(book);
       library.splice(library.indexOf(targetedBook), 1);
       currentBook--;
-      console.table(library);
     });
     book.append(title, author, numpage, status, remove);
   }
@@ -63,11 +61,12 @@ window.addEventListener("DOMContentLoaded", function(){
   addButton.addEventListener("click", function(){
     document.querySelector("dialog").showModal();
   })
-  //use the close function before modifying the close event(order matters)
   cancelButton.addEventListener("click", function(){
+    bookDialog.returnValue = "cancel"
     document.querySelector("dialog").close();
   })
   bookDialog.addEventListener("close", function(){
+      if (bookDialog.returnValue == "cancel"){return;}
       let status = document.querySelector("input[name='status']:checked");
       library.push(new Book(title.value, numpage.value, author.value, status.value));
       title.value = ""; author.value = ""; numpage.value = null; status.checked = false;
