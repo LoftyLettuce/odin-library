@@ -46,23 +46,26 @@ function displayLibrary()
       this.removeEventListener("click", remove);
       bodyTable.removeChild(book);
       library.splice(library.indexOf(targetedBook), 1);
+      currentBook--;
       console.table(library);
     });
     book.append(title, author, numpage, status, remove);
   }
 }
+//"Add new" button
 window.addEventListener("DOMContentLoaded", function(){
   let addButton = this.document.querySelector("tfoot button");
-  let submitButton = this.document.querySelector("button");
+  let bookDialog = this.document.querySelector("dialog");
   let title = this.document.getElementById("title");
   let author = this.document.getElementById("author");
   let numpage = this.document.getElementById("page-num");
   addButton.addEventListener("click", function(){
     document.querySelector("dialog").showModal();
   })
-  submitButton.addEventListener("click", function(){
-    let status = document.querySelector("input[name='status']:checked");
-    library.push(new Book(title.value, numpage.value, author.value, status.value));
-    displayLibrary();
+  bookDialog.addEventListener("close", function(){
+      let status = document.querySelector("input[name='status']:checked");
+      library.push(new Book(title.value, numpage.value, author.value, status.value));
+      title.value = ""; author.value = ""; numpage.value = null; status.checked = false;
+      displayLibrary();
   })
 })

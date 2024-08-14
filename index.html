@@ -12,15 +12,15 @@
   <dialog>
     <form method="dialog">
       <label for="title"> <span>Title:</span>
-      <input type="text" name="Title" id="title"></label>
+      <input type="text" name="Title" id="title" required></label>
       <label for="author"> <span>Author:</span>
-      <input type="text" name="Author" id="author"></label>
+      <input type="text" name="Author" id="author" required></label>
       <label for="page-num"> <span>Number of pages:</span>
-      <input type="number" name="Page-num" id="page-num" min="0"></label>
+      <input type="number" name="Page-num" id="page-num" min="0" required></label>
       <fieldset>
         <legend>Status</legend>
         <label for="completed">
-        <input type="radio" name="status" id="completed" value="Completed">Completed</label>
+        <input type="radio" name="status" id="completed" value="Completed" required>Completed</label>
         <label for="reading">
         <input type="radio" name="status" id="reading" value="Reading">Reading</label>
         <label for="read">
