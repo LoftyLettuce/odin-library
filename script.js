@@ -56,11 +56,16 @@ function displayLibrary()
 window.addEventListener("DOMContentLoaded", function(){
   let addButton = this.document.querySelector("tfoot button");
   let bookDialog = this.document.querySelector("dialog");
+  let cancelButton = bookDialog.querySelector("button[type='button']");
   let title = this.document.getElementById("title");
   let author = this.document.getElementById("author");
   let numpage = this.document.getElementById("page-num");
   addButton.addEventListener("click", function(){
     document.querySelector("dialog").showModal();
+  })
+  //use the close function before modifying the close event(order matters)
+  cancelButton.addEventListener("click", function(){
+    document.querySelector("dialog").close();
   })
   bookDialog.addEventListener("close", function(){
       let status = document.querySelector("input[name='status']:checked");
