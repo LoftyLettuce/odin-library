@@ -1,16 +1,17 @@
 let library = new Array();
 let currentBook = 0;
-function Book(title, numpage, author, status)
-{
-  this.title = title;
-  this.numpage = numpage;
-  this.author = author;
-  this.status = status;
-}
-Book.prototype.switchStatus = function(){
+class Book{
+  constructor(title, numpage, author, status){
+    this.title = title;
+    this.numpage = numpage;
+    this.author = author;
+    this.status = status;
+  }
+  switchStatus(){
   let arrayStatus = ["Completed", "Reading", "Read"];
   let state = (arrayStatus.indexOf(this.status)+1)%3; //Change current state
   this.status = arrayStatus[state];
+  }
 }
 function displayLibrary()
 {
