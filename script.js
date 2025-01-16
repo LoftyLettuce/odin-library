@@ -73,4 +73,17 @@ window.addEventListener("DOMContentLoaded", function(){
       title.value = ""; author.value = ""; numpage.value = null; status.checked = false;
       displayLibrary();
   })
+  ///add validation
+  bookDialog.querySelector('button[type="submit"]').addEventListener('click', ()=>{
+    Array.from(bookDialog.querySelectorAll('input')).forEach((element)=>{
+      element.setCustomValidity("");
+      if (!element.checkValidity())
+      {
+        element.setCustomValidity("You have to fill this one too!!");
+      }
+      else{
+        element.setCustomValidity('');
+      }
+    })
+  })
 })
