@@ -74,9 +74,10 @@ window.addEventListener("DOMContentLoaded", function(){
       displayLibrary();
   })
   ///add validation
-  bookDialog.querySelector('button[type="submit"]').addEventListener('click', ()=>{
-    Array.from(bookDialog.querySelectorAll('input')).forEach((element)=>{
+  Array.from(bookDialog.querySelectorAll('input')).forEach((element)=>{
+    element.addEventListener('input', ()=>{
       element.setCustomValidity("");
+      console.log(element.checkValidity());
       if (!element.checkValidity())
       {
         element.setCustomValidity("You have to fill this one too!!");
